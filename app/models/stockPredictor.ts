@@ -83,7 +83,7 @@ export class StockPredictor {
       
       // Denormalize prediction
       const denormalizedPrediction = 
-        predictionValue[0] * this.meanStd.std[3] + this.meanStd.mean[3];
+        this.meanStd ? predictionValue[0] * this.meanStd.std[3] + this.meanStd.mean[3] : predictionValue[0];
       
       return denormalizedPrediction;
     } catch (error) {

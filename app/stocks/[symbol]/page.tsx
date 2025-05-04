@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from 'react';
 import { useParams } from 'next/navigation';
+import Link from 'next/link';
 import Header from '../../components/Header';
 import StockChart from '../../components/StockChart';
 import AIPredictorCard from '../../components/AIPredictorCard';
@@ -96,12 +97,12 @@ export default function StockDetailPage() {
         <div className="container mx-auto px-4 py-12 text-center">
           <h1 className="text-3xl font-bold mb-4">Stock Not Found</h1>
           <p className="text-gray-600 mb-8">We couldn't find any stock with the symbol "{symbol}".</p>
-          <a 
+          <Link 
             href="/stocks" 
             className="px-6 py-3 green-bg text-white rounded-lg font-medium hover:bg-opacity-90 transition-colors"
           >
             Browse All Stocks
-          </a>
+          </Link>
         </div>
       </main>
     );
@@ -380,7 +381,7 @@ export default function StockDetailPage() {
       {/* Footer */}
       <footer className="bg-white border-t border-gray-200 py-8 mt-12">
         <div className="container mx-auto px-4 text-center text-gray-500 text-sm">
-          <p>© 2025 Robinhood. All rights reserved.</p>
+          <p> 2025 Robinhood. All rights reserved.</p>
           <p className="mt-1">This is a demo project for the Vibe Coding Hackathon. Not affiliated with Robinhood Markets, Inc.</p>
         </div>
       </footer>

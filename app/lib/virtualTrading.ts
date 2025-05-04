@@ -134,8 +134,17 @@ export class VirtualTradingSimulator {
     portfolio.totalValue = this.calculateTotalValue(portfolio);
     portfolio.lastUpdated = new Date();
     
+    // Convert portfolio to a plain object for Firestore
+    const portfolioData = {
+      userId: portfolio.userId,
+      cash: portfolio.cash,
+      totalValue: portfolio.totalValue,
+      portfolioItems: portfolio.portfolioItems,
+      lastUpdated: portfolio.lastUpdated
+    };
+    
     // Save updated portfolio
-    await updateDoc(portfolioRef, portfolio);
+    await updateDoc(portfolioRef, portfolioData);
     
     // Record transaction
     const transaction: Transaction = {
@@ -212,8 +221,17 @@ export class VirtualTradingSimulator {
     portfolio.totalValue = this.calculateTotalValue(portfolio);
     portfolio.lastUpdated = new Date();
     
+    // Convert portfolio to a plain object for Firestore
+    const portfolioData = {
+      userId: portfolio.userId,
+      cash: portfolio.cash,
+      totalValue: portfolio.totalValue,
+      portfolioItems: portfolio.portfolioItems,
+      lastUpdated: portfolio.lastUpdated
+    };
+    
     // Save updated portfolio
-    await updateDoc(portfolioRef, portfolio);
+    await updateDoc(portfolioRef, portfolioData);
     
     // Record transaction
     const transaction: Transaction = {
@@ -282,9 +300,18 @@ export class VirtualTradingSimulator {
     portfolio.totalValue = this.calculateTotalValue(portfolio);
     portfolio.lastUpdated = new Date();
     
+    // Convert portfolio to a plain object for Firestore
+    const portfolioData = {
+      userId: portfolio.userId,
+      cash: portfolio.cash,
+      totalValue: portfolio.totalValue,
+      portfolioItems: portfolio.portfolioItems,
+      lastUpdated: portfolio.lastUpdated
+    };
+    
     // Save updated portfolio
     const portfolioRef = doc(db, 'portfolios', userId);
-    await updateDoc(portfolioRef, portfolio);
+    await updateDoc(portfolioRef, portfolioData);
     
     return portfolio;
   }
@@ -300,12 +327,12 @@ export class VirtualTradingSimulator {
   }
   
   // Get leaderboard
-  async getLeaderboard(limit: number = 10): Promise<{ userId: string; totalValue: number }[]> {
+  async getLeaderboard(limitCount: number = 10): Promise<{ userId: string; totalValue: number }[]> {
     const portfoliosRef = collection(db, 'portfolios');
     const q = query(
       portfoliosRef, 
       orderBy('totalValue', 'desc'), 
-      limit(limit)
+      limit(limitCount)
     );
     
     const querySnapshot = await getDocs(q);
