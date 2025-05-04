@@ -1,36 +1,100 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Robinhood Clone with AI Stock Predictor
+
+A pixel-perfect clone of Robinhood with an advanced AI-powered Stock Predictor and Virtual Trading Simulator. This project was created for the Vibe Coding Hackathon 2025.
+
+![Robinhood AI Stock Predictor](https://github.com/yourusername/robinhood-ai/raw/main/public/screenshot.png)
+
+## Features
+
+### 🔮 AI-Powered Stock Predictor
+- Machine learning model that predicts short-term stock trends
+- Confidence scores for each prediction
+- Visual representation of predicted price movements
+- Risk analysis dashboard
+
+### 💰 Virtual Trading Simulator
+- $10,000 in virtual cash to practice trading
+- Real-time buy/sell functionality with current market data
+- Portfolio tracking and performance metrics
+- Leaderboard to compete with other traders
+
+### 📊 Comprehensive Stock Data
+- Detailed stock information and charts
+- Historical price data visualization
+- Company profiles and key statistics
+- Latest news and market insights
+
+## Tech Stack
+
+- **Frontend**: React, TypeScript, Tailwind CSS
+- **Backend**: Next.js API routes
+- **Data Storage**: Firebase Firestore
+- **APIs**: 
+  - Alpha Vantage (stock data)
+  - TensorFlow.js (AI predictions)
+  - ApexCharts (data visualization)
 
 ## Getting Started
 
-First, run the development server:
+First, install the dependencies:
+
+```bash
+npm install
+# or
+yarn install
+```
+
+Then, run the development server:
 
 ```bash
 npm run dev
 # or
 yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Project Structure
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+```
+robinhood-ai/
+├── app/                  # Next.js app directory
+│   ├── components/       # React components
+│   ├── lib/              # Utility functions and APIs
+│   ├── models/           # AI models
+│   ├── api/              # API routes
+│   ├── hooks/            # Custom React hooks
+│   └── styles/           # CSS styles
+├── public/               # Static assets
+└── README.md             # Project documentation
+```
 
-## Learn More
+## Implementation Details
 
-To learn more about Next.js, take a look at the following resources:
+### AI Stock Predictor
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+The AI Stock Predictor uses a pre-trained LSTM (Long Short-Term Memory) model implemented with TensorFlow.js to analyze historical stock data and predict future price movements. The model considers factors such as:
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+- Historical price patterns
+- Trading volume
+- Market trends
+- Technical indicators
 
-## Deploy on Vercel
+Each prediction comes with a confidence score that indicates the model's certainty in its forecast.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+### Virtual Trading Simulator
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+The Virtual Trading Simulator allows users to practice trading with $10,000 in virtual cash. Key features include:
+
+- Real-time buy/sell orders
+- Portfolio tracking
+- Performance metrics
+- Leaderboard competition
+
+## Hackathon Submission
+
+This project was created for the Vibe Coding Hackathon 2025. The goal was to replicate Robinhood's interface with pixel-perfect accuracy while adding a unique and complex feature - the AI-powered Stock Predictor and Virtual Trading Simulator.
+
+## License
+
+This project is for demonstration purposes only and is not affiliated with Robinhood Markets, Inc.
